@@ -1,10 +1,10 @@
 // Gerar array com todos os cards
 Array.from(document.querySelectorAll(".card-container")).forEach(card => {
     // Preço por mês
-    let monthPrice = parseInt(card.querySelector(".js-price").textContent.trim().match(/([0-9]+)/gi)[0]);
+    let monthPrice = parseInt(card.querySelector(".js-price").textContent.trim().replace(/\./gi, "").match(/([0-9]+)/gi)[0]);
     
     // Preço do condomínio
-    let condoPrice = parseInt(card.querySelector(".prices--regular .condominium").textContent.trim().match(/([0-9]+)/gi)[0]);
+    let condoPrice = parseInt(card.querySelector(".prices--regular .condominium").textContent.replace(/\./gi, "").trim().match(/([0-9]+)/gi)[0]);
     
     // Preço total
     let totalPrice = monthPrice + condoPrice;
